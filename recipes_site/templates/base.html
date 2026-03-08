@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог рецептов</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #fff;
+        }
+
+        .card {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            border: none;
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.10);
+        }
+
+        .btn {
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+        }
+
+        .navbar-brand {
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        h2,
+        h5,
+        .card-title {
+            font-family: 'Segoe UI', 'Arial', sans-serif;
+        }
+
+        .form-control,
+        .form-select {
+            border-radius: 0.5rem;
+        }
+
+        .card-img-top {
+            object-fit: cover;
+            height: 180px;
+        }
+
+        @media (max-width: 991px) {
+
+            .col-lg-7,
+            .col-lg-5 {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="/">Каталог рецептов</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                    {% if user.is_authenticated %}
+                    <li class="nav-item"><a class="nav-link" href="/logout/">Выйти</a></li>
+                    {% else %}
+                    <li class="nav-item"><a class="nav-link" href="/login/">Войти</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/register/">Регистрация</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
