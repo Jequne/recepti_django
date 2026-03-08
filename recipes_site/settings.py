@@ -1,3 +1,6 @@
+# После логина и регистрации — на главную страницу
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/login/?logged_out=1'
 """
 Django settings for recipes_site project.
 

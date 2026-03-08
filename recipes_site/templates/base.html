@@ -14,11 +14,16 @@
         .card {
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
             border: none;
-            transition: box-shadow 0.2s;
+            transition: box-shadow 0.5s, background 0.5s;
         }
 
-        .card:hover {
-            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.10);
+        .recipe-card-link:hover {
+            box-shadow: 0 8px 32px rgba(0, 123, 255, 0.15), 0 2px 8px rgba(0, 0, 0, 0.10);
+            background: #f0f8ff;
+        }
+
+        .recipe-card-link:active {
+            background: #e6f0fa;
         }
 
         .btn {

@@ -5,7 +5,8 @@
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
         {% for recipe in recipes %}
         <div class="col d-flex">
-            <div class="card h-100 w-100">
+            <a href="{% url 'recipe_detail' recipe.pk %}"
+                class="card h-100 w-100 recipe-card-link text-decoration-none text-dark">
                 {% if recipe.image %}
                 <img src="{{ recipe.image.url }}" class="card-img-top" alt="{{ recipe.title }}">
                 {% else %}
@@ -28,9 +29,8 @@
                         </span>
                         <span class="ms-1">({{ recipe.rating_avg }})</span>
                     </div>
-                    <a href="{% url 'recipe_detail' recipe.pk %}" class="btn btn-outline-primary mt-auto">Подробнее</a>
                 </div>
-            </div>
+            </a>
         </div>
         {% empty %}
         <div class="col-12">
