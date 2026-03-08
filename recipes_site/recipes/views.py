@@ -50,8 +50,9 @@ def register(request):
 		form = CustomUserCreationForm()
 	return render(request, 'registration/register.html', {'form': form})
 
-@login_required
 def recipe_list(request):
+	if not request.user.is_authenticated:
+		return redirect('/register/')
 	recipes = Recipe.objects.all().order_by('-created_at')
 	return render(request, 'recipe_list.html', {'recipes': recipes})
 

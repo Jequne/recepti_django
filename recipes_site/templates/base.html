@@ -68,12 +68,17 @@
             <a class="navbar-brand" href="/">Каталог рецептов</a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ms-auto">
-                    {% if user.is_authenticated %}
-                    <li class="nav-item"><a class="nav-link" href="/logout/">Выйти</a></li>
-                    {% else %}
-                    <li class="nav-item"><a class="nav-link" href="/login/">Войти</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/register/">Регистрация</a></li>
-                    {% endif %}
+                                        {% if user.is_authenticated %}
+                                        <li class="nav-item">
+                                            <form method="post" action="/logout/" style="display:inline;">
+                                                {% csrf_token %}
+                                                <button type="submit" class="nav-link btn btn-link" style="padding:0; border:none; background:none;">Выйти</button>
+                                            </form>
+                                        </li>
+                                        {% else %}
+                                        <li class="nav-item"><a class="nav-link" href="/login/">Войти</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="/register/">Регистрация</a></li>
+                                        {% endif %}
                 </ul>
             </div>
         </div>

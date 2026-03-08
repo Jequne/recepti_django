@@ -28,7 +28,7 @@ urlpatterns = [
         template_name='registration/login.html',
         authentication_form=CustomAuthenticationForm
     ), name='login'),
-    path('logout/', auth_views.LogoutView.as_view(next_page='/login/?logged_out=1'), name='logout'),
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('register/', recipes_views.register, name='register'),
     path('', include('recipes_site.recipes.urls')),
 ]
