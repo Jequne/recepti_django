@@ -23,7 +23,15 @@
                 {{ form.password2|add_class:'form-control' }}
             </div>
             {% if form.errors %}
-            <div class="alert alert-danger">{{ form.errors }}</div>
+            <div class="alert alert-danger">
+                <ul class="mb-0">
+                {% for field, errors in form.errors.items %}
+                    {% for error in errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                {% endfor %}
+                </ul>
+            </div>
             {% endif %}
             <button type="submit" class="btn btn-primary w-100">Зарегистрироваться</button>
         </form>
