@@ -1,3 +1,15 @@
+from django.contrib.auth.forms import AuthenticationForm
+
+class CustomAuthenticationForm(AuthenticationForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['username'].label = 'Имя пользователя'
+        self.fields['password'].label = 'Пароль'
+
+    error_messages = {
+        'invalid_login': "Пожалуйста, введите правильные имя пользователя и пароль. Оба поля обязательны.",
+        'inactive': "Этот аккаунт неактивен.",
+    }
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
